@@ -37,3 +37,23 @@ class Library:
             if book.is_available:
                 print(book)
         return None
+
+    @staticmethod
+    def save_users(self):
+        """save the users data into a json file"""
+
+        try:
+            FileHanding.dump_data('users', self.dict_users)
+        except:
+            print("ERROR")
+
+    @staticmethod
+    def load_users(self):
+        """load the users data from a json file"""
+
+        try:
+            data = FileHanding.load_data('users')
+            return data
+        except:
+            print("ERROR")
+        return None
