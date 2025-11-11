@@ -1,7 +1,7 @@
 from core.book import Book
 from core.user import User
 from core.file_handling import FileHandling
-import json
+import  json
 
 
 class Library:
@@ -17,9 +17,23 @@ class Library:
     def add_user(self, user: User) -> None:
         self.users.append(user)
 
+
     @staticmethod
     def borrow_book(user: User, book: Book) -> None:
         if book.is_avaklable and user.user_id:
             user.borrowed_books.append(book.isbn)
             book.set_available()
+        return None
+
+    @staticmethod
+    def return_book(user: User, book: Book) -> None:
+        if book.is_avaklable and user.user_id:
+            user.borrowed_books.remove(book.isbn)
+            book.set_available()
+        return None
+
+    def list_available_books(self) -> None:
+        for book in self.books:
+            if book.is_available:
+                print(book)
         return None
