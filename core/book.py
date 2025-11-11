@@ -10,4 +10,4 @@ class Book:
         return f'------Book------\n Title: {self.title}\n Author: {self.author}'
 
     def set_available(self):
-        return not self.is_available
+        self.is_available = not self.is_available
