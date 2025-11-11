@@ -32,15 +32,50 @@ class Library:
             book.set_available()
         return None
 
-    def list_available_books(self) -> None:
-        for book in self.books:
-            if book.is_available:
-                print(book)
-        return None
-
     def search_book(self, title_or_author) -> None:
         for book in self.books:
             if book.title == title_or_author or book.author == title_or_author:
                 print(book)
 
         return None
+
+    def list_available_books(self) -> None:
+        for book in self.books:
+            if book.is_available:
+                print(book)
+        return None
+
+    @staticmethod
+    def save_users(self):
+        """save the users data into a json file"""
+
+        try:
+            FileHanding.dump_data('users', self.dict_users)
+        except:
+            print("ERROR")
+
+    @staticmethod
+    def load_users(self):
+        """load the users data from a json file"""
+
+        try:
+            data = FileHanding.load_data('users')
+            return data
+        except:
+            print("ERROR")
+        return None
+
+    def save_books(self):
+        '''save the books data into a json file'''
+        try:
+            FileHandling.dump_data('books', self.dict_books
+        except:
+            print("ERROR")
+
+    def load_books(self):
+        '''load the books data from a json file'''
+        try:
+            data = FileHandling.load_data('books')
+            return data
+        except:
+            print("ERROR")
