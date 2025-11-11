@@ -64,14 +64,14 @@ class Library:
         except:
             print("ERROR")
         return None
-
+    @staticmethod
     def save_books(self):
         '''save the books data into a json file'''
         try:
             FileHandling.dump_data('books', self.dict_books
         except:
             print("ERROR")
-
+    @staticmethod
     def load_books(self):
         '''load the books data from a json file'''
         try:
