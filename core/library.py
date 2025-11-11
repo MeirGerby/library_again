@@ -37,3 +37,10 @@ class Library:
             if book.is_available:
                 print(book)
         return None
+
+    def search_book(self, title_or_author) -> None:
+        for book in self.books:
+            if book.title == title_or_author or book.author == title_or_author:
+                print(book)
+
+        return None
